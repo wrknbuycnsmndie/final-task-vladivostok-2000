@@ -20,7 +20,7 @@ const LandingSection: FC<LandingSectionProps> = ({
       className='landing-section'
       style={image ? { backgroundImage: `url(${image})` } : {}}
     >
-      <NavLink to={link || '/'}>
+      <NavLink to={link || '/'} onClick={() => window.scrollTo(0, 0)}>
         <div className='overlay'>
           <div className='content'>
             <h2>{heading}</h2>
