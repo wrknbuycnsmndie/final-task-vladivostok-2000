@@ -1,0 +1,132 @@
+/* General page styling */
+.culture-page {
+  padding: 20px;
+  font-family: 'Inter', sans-serif;
+  color: var(--color-text);
+  background-color: var(--color-background);
+}
+
+.hero-section {
+  text-align: center;
+  padding: 40px 20px;
+  background-color: var(--color-primary);
+  color: white;
+  border-radius: 8px;
+}
+
+.hero-section h1 {
+  font-size: 2.5rem;
+  margin-bottom: 10px;
+}
+
+.hero-section p {
+  font-size: 1.2rem;
+  margin-bottom: 0;
+}
+
+.traditional-events {
+  margin: 40px 0;
+}
+
+.traditional-events h2 {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 20px;
+}
+
+.event {
+  margin-bottom: 30px;
+}
+
+.event h3 {
+  font-size: 1.8rem;
+  margin-bottom: 10px;
+  color: var(--color-primary);
+}
+
+.event p {
+  font-size: 1.1rem;
+  line-height: 1.6;
+}
+
+.local-arts {
+  margin: 40px 0;
+}
+
+.local-arts h2 {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 20px;
+}
+
+.local-arts p {
+  text-align: center;
+  font-size: 1.2rem;
+}
+
+.local-arts ul {
+  list-style: disc;
+  padding-left: 20px;
+}
+
+.local-arts li {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  margin-bottom: 10px;
+}
+
+.culinary-traditions {
+  margin: 40px 0;
+}
+
+.culinary-traditions h2 {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 20px;
+}
+
+.culinary-traditions p {
+  text-align: center;
+  font-size: 1.2rem;
+}
+
+.culinary-traditions ul {
+  list-style: disc;
+  padding-left: 20px;
+}
+
+.culinary-traditions li {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  margin-bottom: 10px;
+}
+
+@media (max-width: 768px) {
+  .hero-section h1 {
+    font-size: 2rem;
+  }
+
+  .hero-section p {
+    font-size: 1rem;
+  }
+
+  .traditional-events h2,
+  .local-arts h2,
+  .culinary-traditions h2 {
+    font-size: 1.8rem;
+  }
+
+  .event h3 {
+    font-size: 1.5rem;
+  }
+
+  .local-arts ul,
+  .culinary-traditions ul {
+    padding-left: 10px;
+  }
+
+  .local-arts li,
+  .culinary-traditions li {
+    font-size: 1rem;
+  }
+}

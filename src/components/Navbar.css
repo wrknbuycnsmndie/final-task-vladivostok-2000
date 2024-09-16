@@ -1,0 +1,130 @@
+.navbar {
+  background-color: var(--color-background);
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid var(--color-primary);
+  margin: 0;
+  height: 10dvh;
+}
+
+.logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: var(--color-primary);
+  flex-grow: 1;
+}
+
+.navbar-links {
+  list-style-type: none;
+  padding: 0;
+  display: flex;
+  gap: 20px;
+}
+
+.navbar-links li {
+  display: inline;
+}
+
+.navbar-links a {
+  text-decoration: none;
+  color: var(--color-text);
+  font-weight: 500;
+  transition: color var(--transition-duration);
+  display: flex;
+  align-items: center;
+}
+
+.navbar-links a:hover {
+  color: var(--color-primary-hover);
+}
+
+.navbar-links a.active {
+  color: var(--color-primary);
+  font-weight: bold;
+  border-bottom: 2px solid var(--color-primary);
+}
+
+.nav-image {
+  width: 50px;
+
+  height: 50px;
+
+  margin-right: 10px;
+
+  border-radius: 50%;
+}
+
+.burger-menu,
+.theme-switcher {
+  background-color: var(--color-background);
+  color: var(--color-text);
+  border: 1px solid var(--color-primary);
+  border-radius: 8px;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  font-size: 1.5rem;
+  transition: background-color var(--transition-duration),
+    color var(--transition-duration);
+  margin-left: 10px;
+}
+
+.burger-menu:hover,
+.theme-switcher:hover {
+  background-color: var(--color-primary-hover);
+  color: var(--color-background);
+}
+
+@media (max-width: 768px) {
+  .logo {
+    text-align: center;
+    margin: 0 auto;
+    flex-grow: 0;
+  }
+
+  .navbar-links {
+    display: none;
+    position: absolute;
+    top: 10dvh;
+    left: 0;
+    width: 100%;
+    flex-direction: column;
+    background-color: var(--color-background);
+    gap: 10px;
+    padding: 20px;
+    height: calc(100dvh - 10dvh);
+
+    overflow-y: auto;
+    z-index: 100;
+  }
+
+  .navbar-links.active {
+    display: flex;
+  }
+
+  .navbar-links li {
+    width: 100%;
+    text-align: center;
+  }
+
+  .navbar-links a {
+    font-size: 1.5rem;
+    padding: 10px;
+  }
+
+  .burger-menu {
+    display: block;
+  }
+
+  .controls {
+    display: flex;
+    align-items: center;
+  }
+}
+
+@media (min-width: 769px) {
+  .burger-menu {
+    display: none;
+  }
+}
