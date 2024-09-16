@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import ThemeSwitcher from './ThemeSwitcher';
 import './Navbar.css'; // Assuming your CSS is in Navbar.css
