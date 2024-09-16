@@ -1,5 +1,6 @@
 import { FC } from 'react';
 import './LandingSection.css';
+import { NavLink } from 'react-router-dom';
 
 interface LandingSectionProps {
   heading: string;
@@ -19,14 +20,14 @@ const LandingSection: FC<LandingSectionProps> = ({
       className='landing-section'
       style={image ? { backgroundImage: `url(${image})` } : {}}
     >
-      <a href={link}>
+      <NavLink to={link || '/'}>
         <div className='overlay'>
           <div className='content'>
             <h2>{heading}</h2>
             <p>{description}</p>
           </div>
         </div>
-      </a>
+      </NavLink>
     </section>
   );
 };
