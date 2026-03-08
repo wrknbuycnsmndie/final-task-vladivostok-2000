@@ -5,7 +5,7 @@ type Theme = 'light' | 'dark';
 
 const ThemeSwitcher = () => {
   const getInitialTheme = (): Theme => {
-    const savedTheme = localStorage.getItem('theme');
+    const savedTheme = window.localStorage.getItem('theme');
     if (savedTheme === 'light' || savedTheme === 'dark') {
       return savedTheme;
     }
@@ -20,7 +20,7 @@ const ThemeSwitcher = () => {
 
   useEffect(() => {
     document.documentElement.setAttribute('data-theme', theme);
-    localStorage.setItem('theme', theme);
+    window.localStorage.setItem('theme', theme);
   }, [theme]);
 
   const toggleTheme = () => {
