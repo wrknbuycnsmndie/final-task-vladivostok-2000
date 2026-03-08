@@ -1,27 +1,93 @@
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700&display=swap');
+
 :root {
-  /* Colors */
-  --color-primary: #646cff;
-  --color-primary-hover: #535bf2;
-  --color-background: #ffffff;
-  --color-text: #213547;
+  --bg: #eef4f8;
+  --bg-accent: #d8e8f4;
+  --surface: #ffffff;
+  --surface-elevated: #f8fbfd;
+  --text: #12263a;
+  --text-muted: #4f647a;
+  --primary: #0e7490;
+  --primary-strong: #155e75;
+  --primary-soft: #d5eef7;
+  --accent: #f59e0b;
+  --border: #cfe0eb;
 
-  /* Typography */
-  --font-family: 'Inter', system-ui, Avenir, Helvetica, Arial, sans-serif;
-  --font-weight-normal: 400;
-  --font-weight-bold: 700;
-  --font-size-base: 16px;
-  --line-height-base: 1.5;
+  --font-body: 'Manrope', 'Segoe UI', sans-serif;
+  --font-heading: 'Playfair Display', 'Georgia', serif;
 
-  /* Accent Color */
-  --accent-color: #ff6584;
+  --radius-sm: 10px;
+  --radius-md: 16px;
+  --radius-lg: 24px;
 
-  /* Transitions */
-  --transition-duration: 0.25s;
+  --shadow-sm: 0 8px 24px rgba(13, 36, 56, 0.1);
+  --shadow-lg: 0 20px 50px rgba(13, 36, 56, 0.18);
+
+  --transition-fast: 180ms ease;
+  --transition-mid: 280ms ease;
 }
-/* Dark theme variables */
+
 [data-theme='dark'] {
-  --color-background: #242424;
-  --color-text: rgba(255, 255, 255, 0.87);
-  --color-primary: #646cff;
-  --color-primary-hover: #747bff;
+  --bg: #08111f;
+  --bg-accent: #0f1c30;
+  --surface: #0f1b2f;
+  --surface-elevated: #13233b;
+  --text: #e6edf5;
+  --text-muted: #a5b5c8;
+  --primary: #38bdf8;
+  --primary-strong: #7dd3fc;
+  --primary-soft: #123146;
+  --accent: #fbbf24;
+  --border: #2a3c56;
+  --shadow-sm: 0 10px 24px rgba(0, 0, 0, 0.35);
+  --shadow-lg: 0 26px 60px rgba(0, 0, 0, 0.45);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  min-height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-body);
+  color: var(--text);
+  background-color: var(--bg);
+  background-image:
+    radial-gradient(circle at 12% 15%, rgba(14, 116, 144, 0.18), transparent 30%),
+    radial-gradient(circle at 82% 6%, rgba(245, 158, 11, 0.2), transparent 24%),
+    linear-gradient(180deg, var(--bg-accent), var(--bg));
+  line-height: 1.55;
+}
+
+a {
+  color: inherit;
+}
+
+h1,
+h2,
+h3 {
+  font-family: var(--font-heading);
+  margin: 0;
+}
+
+p {
+  margin: 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition: none !important;
+    scroll-behavior: auto !important;
+  }
 }

@@ -1,85 +1,91 @@
 import { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import ThemeSwitcher from './ThemeSwitcher';
-import './Navbar.css'; // Assuming your CSS is in Navbar.css
+import './Navbar.css';
+
+const NAV_LINKS = [
+  {
+    to: '/',
+    image: '/vladivostok-image.jpg',
+    alt: 'Главная',
+    label: 'Главная',
+    end: true,
+  },
+  {
+    to: '/history-of-city',
+    image: '/first-card-image.jpg',
+    alt: 'История города',
+    label: 'История',
+    end: false,
+  },
+  {
+    to: '/tourism',
+    image: '/second-card-image.jpg',
+    alt: 'Туризм',
+    label: 'Туризм',
+    end: false,
+  },
+  {
+    to: '/culture-and-traditions',
+    image: '/third-card-image.jpg',
+    alt: 'Культура и традиции',
+    label: 'Культура',
+    end: false,
+  },
+] as const;
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-  // Toggle burger menu visibility
   const toggleMenu = () => {
-    setIsMenuOpen(!isMenuOpen);
-  };
-  // redirect to main by click
-  const redirectToMain = () => {
-    window.location.replace('/');
+    setIsMenuOpen((prevState) => !prevState);
   };
 
   return (
-    <nav className='navbar'>
-      <div onClick={redirectToMain} className='logo'>
-        🌸Vladivostok 2000🌸
-      </div>
-      <ul className={`navbar-links ${isMenuOpen ? 'active' : ''}`}>
-        <li onClick={toggleMenu}>
-          <NavLink
-            to='/'
-            className={({ isActive }) => (isActive ? 'active' : '')}
-            end
+    <header className='site-header'>
+      <nav className='navbar' aria-label='Основная навигация'>
+        <NavLink to='/' className='logo' onClick={() => setIsMenuOpen(false)}>
+          <span className='logo-mark' aria-hidden='true'>
+            VL
+          </span>
+          <span className='logo-text'>Владивосток 2000</span>
+        </NavLink>
+
+        <ul
+          className={`navbar-links ${isMenuOpen ? 'active' : ''}`}
+          id='primary-nav-links'
+        >
+          {NAV_LINKS.map((link) => (
+            <li key={link.to} onClick={() => setIsMenuOpen(false)}>
+              <NavLink
+                to={link.to}
+                end={link.end}
+                className={({ isActive }) =>
+                  `nav-link ${isActive ? 'active' : ''}`
+                }
+              >
+                <img src={link.image} alt={link.alt} className='nav-image' />
+                <span>{link.label}</span>
+              </NavLink>
+            </li>
+          ))}
+        </ul>
+
+        <div className='nav-controls'>
+          <ThemeSwitcher />
+          <button
+            className='burger-menu'
+            onClick={toggleMenu}
+            type='button'
+            aria-expanded={isMenuOpen}
+            aria-controls='primary-nav-links'
+            aria-label={isMenuOpen ? 'Закрыть меню' : 'Открыть меню'}
           >
-            <img
-              src='/vladivostok-image.jpg'
-              alt='История города'
-              className='nav-image'
-            />
-            Главная
-          </NavLink>
-        </li>
-        <li onClick={toggleMenu}>
-          <NavLink
-            to='/history-of-city'
-            className={({ isActive }) => (isActive ? 'active' : '')}
-          >
-            <img
-              src='/first-card-image.jpg'
-              alt='История города'
-              className='nav-image'
-            />
-            История города
-          </NavLink>
-        </li>
-        <li onClick={toggleMenu}>
-          <NavLink
-            to='/tourism'
-            className={({ isActive }) => (isActive ? 'active' : '')}
-          >
-            <img
-              src='/second-card-image.jpg'
-              alt='Туризм'
-              className='nav-image'
-            />
-            Туризм
-          </NavLink>
-        </li>
-        <li onClick={toggleMenu}>
-          <NavLink
-            to='/culture-and-traditions'
-            className={({ isActive }) => (isActive ? 'active' : '')}
-          >
-            <img
-              src='/third-card-image.jpg'
-              alt='Культура и традиции'
-              className='nav-image'
-            />
-            Культура и традиции
-          </NavLink>
-        </li>
-      </ul>
-      <ThemeSwitcher />
-      <button className='burger-menu' onClick={toggleMenu}>
-        {isMenuOpen ? '✖️' : '☰'}
-      </button>
-    </nav>
+            <span aria-hidden='true'>{isMenuOpen ? '✕' : '☰'}</span>
+          </button>
+        </div>
+      </nav>
+    </header>
   );
 };
 

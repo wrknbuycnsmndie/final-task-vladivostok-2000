@@ -8,9 +8,9 @@ interface ILayout {
 
 const Layout: FC<ILayout> = ({ children }) => {
   return (
-    <div>
+    <div className='site-shell'>
       <Navbar />
-      <main>{children}</main>
+      <main className='site-main'>{children}</main>
       <Footer />
     </div>
   );

@@ -1,11 +1,13 @@
 import { useState, useEffect } from 'react';
 import './ThemeSwitcher.css';
 
+type Theme = 'light' | 'dark';
+
 const ThemeSwitcher = () => {
-  const getInitialTheme = () => {
+  const getInitialTheme = (): Theme => {
     const savedTheme = localStorage.getItem('theme');
-    if (savedTheme) {
-      return savedTheme; // Use saved theme if available
+    if (savedTheme === 'light' || savedTheme === 'dark') {
+      return savedTheme;
     }
 
     const prefersDarkScheme = window.matchMedia(
@@ -18,7 +20,7 @@ const ThemeSwitcher = () => {
 
   useEffect(() => {
     document.documentElement.setAttribute('data-theme', theme);
-    localStorage.setItem('theme', theme); // Save user preference in localStorage
+    localStorage.setItem('theme', theme);
   }, [theme]);
 
   const toggleTheme = () => {
@@ -26,8 +28,20 @@ const ThemeSwitcher = () => {
   };
 
   return (
-    <button onClick={toggleTheme} className='theme-switcher'>
-      {theme === 'light' ? '🌞' : '🌙'}
+    <button
+      onClick={toggleTheme}
+      className='theme-switcher'
+      type='button'
+      aria-label={
+        theme === 'light' ? 'Включить темную тему' : 'Включить светлую тему'
+      }
+    >
+      <span className='theme-switcher-icon' aria-hidden='true'>
+        {theme === 'light' ? '☀' : '☾'}
+      </span>
+      <span className='theme-switcher-label'>
+        {theme === 'light' ? 'Light' : 'Dark'}
+      </span>
     </button>
   );
 };

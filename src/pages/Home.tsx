@@ -1,4 +1,5 @@
 import { FC } from 'react';
+import { NavLink } from 'react-router-dom';
 import './Home.css';
 import LandingSection from '../components/LandingSection';
 import SectionGrid from '../components/LandingSectionGrid';
@@ -13,12 +14,46 @@ const Home: FC = () => {
             Откройте для себя уникальный город, который является воротами России
             в Тихий океан.
           </p>
+          <div className='hero-actions'>
+            <NavLink to='/tourism' className='hero-action hero-action-primary'>
+              Начать путешествие
+            </NavLink>
+            <NavLink
+              to='/history-of-city'
+              className='hero-action hero-action-secondary'
+            >
+              Узнать историю
+            </NavLink>
+          </div>
         </div>
       </header>
+
+      <section className='home-intro'>
+        <h2>Почему о Владивостоке интересно читать</h2>
+        <p>
+          Владивосток — это город, где в одном маршруте можно увидеть военную
+          историю, современные мосты, университетский кампус и тихие бухты с
+          морскими панорамами. Его развитие всегда шло на пересечении
+          транспортных, культурных и международных процессов.
+        </p>
+        <p>
+          Здесь особенно заметно, как география влияет на стиль жизни: сопки
+          формируют городской рельеф, а море задает темп и настроение. Поэтому
+          даже обычная прогулка по району превращается в небольшое путешествие с
+          видами на заливы, мосты и корабли.
+        </p>
+        <p>
+          На страницах этого проекта собраны материалы для неспешного знакомства
+          с городом: история, маршруты, культурные особенности и местные
+          гастрономические традиции.
+        </p>
+      </section>
+
       <SectionGrid>
         <LandingSection
           heading='Владивосток — сердце Дальнего Востока'
           description='Владивосток — один из самых уникальных городов России, известный своими потрясающими видами и богатой историей.'
+          image='/vladivostok-image.jpg'
           link='/'
         />
         <LandingSection

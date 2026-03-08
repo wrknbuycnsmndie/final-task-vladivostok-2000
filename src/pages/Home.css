@@ -1,43 +1,140 @@
 .home {
-  margin: 0;
-  padding: 0;
+  width: 100%;
 }
+
 .hero {
   position: relative;
-  width: 100vw;
-  height: 100vh;
+  width: min(1280px, 96vw);
+  margin: 1.6rem auto 1.1rem;
+  min-height: min(76dvh, 760px);
   background-image: url('/vladivostok-image.jpg');
   background-size: cover;
-  background-position: center;
+  background-position: center 30%;
   background-repeat: no-repeat;
+  border-radius: clamp(20px, 3.2vw, 36px);
+  overflow: hidden;
   display: flex;
   justify-content: center;
   align-items: center;
-  color: white;
+  box-shadow: var(--shadow-lg);
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(8, 17, 31, 0.34), rgba(8, 17, 31, 0.78));
 }
 
 .hero-content {
+  position: relative;
+  z-index: 1;
+  width: min(900px, 90vw);
+  display: grid;
+  gap: 1rem;
   text-align: center;
-  color: #fff;
+  color: #ffffff;
   text-shadow: 0px 4px 6px rgba(0, 0, 0, 0.7);
 }
 
 .hero h1 {
-  font-size: 4rem;
-  margin-bottom: 20px;
+  font-size: clamp(2.2rem, 6vw, 4.2rem);
+  line-height: 1.07;
 }
 
 .hero p {
-  font-size: 1.5rem;
-  max-width: 800px;
+  font-size: clamp(1rem, 2.2vw, 1.35rem);
+  max-width: 700px;
   margin: 0 auto;
+  color: rgba(255, 255, 255, 0.92);
 }
+
+.hero-actions {
+  margin-top: 0.45rem;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.hero-action {
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 180px;
+  padding: 0.7rem 1.2rem;
+  border-radius: 999px;
+  font-weight: 700;
+  transition: transform var(--transition-fast), box-shadow var(--transition-fast),
+    background-color var(--transition-fast);
+}
+
+.hero-action:hover {
+  transform: translateY(-2px);
+}
+
+.hero-action-primary {
+  color: #ffffff;
+  background: linear-gradient(135deg, var(--primary), var(--primary-strong));
+  box-shadow: 0 10px 26px rgba(14, 116, 144, 0.45);
+}
+
+.hero-action-secondary {
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.55);
+  background: rgba(255, 255, 255, 0.16);
+}
+
+.hero-action:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+
+.home-intro {
+  width: min(980px, 92vw);
+  margin: 1.3rem auto 1.1rem;
+  padding: 1.35rem 1.15rem;
+  display: grid;
+  gap: 0.8rem;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-sm);
+}
+
+.home-intro h2 {
+  font-size: clamp(1.4rem, 3vw, 2rem);
+}
+
+.home-intro p {
+  font-size: 1rem;
+  color: var(--text-muted);
+  line-height: 1.65;
+}
+
 @media (max-width: 768px) {
+  .hero {
+    width: 92vw;
+    margin-top: 1rem;
+    min-height: 60dvh;
+  }
+
   .hero h1 {
-    font-size: 2.5rem;
+    font-size: 2.2rem;
   }
 
   .hero p {
-    font-size: 1.2rem;
+    font-size: 1.05rem;
+  }
+
+  .hero-action {
+    width: 100%;
+    max-width: 320px;
+  }
+
+  .home-intro {
+    margin-top: 0.9rem;
+    padding: 1.05rem 0.95rem;
   }
 }

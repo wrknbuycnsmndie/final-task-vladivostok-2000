@@ -1,132 +1,89 @@
-/* General page styling */
 .culture-page {
-  padding: 20px;
-  font-family: 'Inter', sans-serif;
-  color: var(--color-text);
-  background-color: var(--color-background);
+  width: min(980px, 92vw);
+  margin: 2rem auto 0;
+  display: grid;
+  gap: 1.2rem;
+  color: var(--text);
 }
 
-.hero-section {
+.culture-page .hero-section {
   text-align: center;
-  padding: 40px 20px;
-  background-color: var(--color-primary);
-  color: white;
-  border-radius: 8px;
+  padding: 2.4rem 1.2rem;
+  border-radius: var(--radius-lg);
+  background: linear-gradient(145deg, var(--primary), var(--primary-strong));
+  color: #ffffff;
+  box-shadow: var(--shadow-lg);
 }
 
-.hero-section h1 {
-  font-size: 2.5rem;
-  margin-bottom: 10px;
+.culture-page .hero-section h1 {
+  font-size: clamp(1.9rem, 4vw, 2.8rem);
+  margin-bottom: 0.7rem;
 }
 
-.hero-section p {
-  font-size: 1.2rem;
-  margin-bottom: 0;
+.culture-page .hero-section p {
+  font-size: clamp(1rem, 2vw, 1.2rem);
+  max-width: 72ch;
+  margin: 0 auto;
 }
 
-.traditional-events {
-  margin: 40px 0;
+.culture-page .traditional-events,
+.culture-page .local-arts,
+.culture-page .culinary-traditions {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: 1.45rem 1.2rem;
+  box-shadow: var(--shadow-sm);
 }
 
-.traditional-events h2 {
-  text-align: center;
-  font-size: 2rem;
-  margin-bottom: 20px;
+.culture-page .traditional-events h2,
+.culture-page .local-arts h2,
+.culture-page .culinary-traditions h2 {
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  margin-bottom: 1rem;
 }
 
-.event {
-  margin-bottom: 30px;
+.culture-page .event {
+  padding-block: 0.9rem;
 }
 
-.event h3 {
-  font-size: 1.8rem;
-  margin-bottom: 10px;
-  color: var(--color-primary);
+.culture-page .event + .event {
+  border-top: 1px dashed var(--border);
 }
 
-.event p {
-  font-size: 1.1rem;
-  line-height: 1.6;
+.culture-page .event h3 {
+  font-size: 1.35rem;
+  margin-bottom: 0.45rem;
+  color: var(--primary-strong);
 }
 
-.local-arts {
-  margin: 40px 0;
+.culture-page .event p,
+.culture-page .local-arts p,
+.culture-page .culinary-traditions p {
+  font-size: 1rem;
+  line-height: 1.62;
+  color: var(--text-muted);
 }
 
-.local-arts h2 {
-  text-align: center;
-  font-size: 2rem;
-  margin-bottom: 20px;
-}
-
-.local-arts p {
-  text-align: center;
-  font-size: 1.2rem;
-}
-
-.local-arts ul {
+.culture-page .local-arts ul,
+.culture-page .culinary-traditions ul {
   list-style: disc;
-  padding-left: 20px;
+  padding-left: 1.2rem;
+  margin: 0.8rem 0 0;
+  display: grid;
+  gap: 0.55rem;
 }
 
-.local-arts li {
-  font-size: 1.1rem;
+.culture-page .local-arts li,
+.culture-page .culinary-traditions li {
+  font-size: 1rem;
   line-height: 1.6;
-  margin-bottom: 10px;
-}
-
-.culinary-traditions {
-  margin: 40px 0;
-}
-
-.culinary-traditions h2 {
-  text-align: center;
-  font-size: 2rem;
-  margin-bottom: 20px;
-}
-
-.culinary-traditions p {
-  text-align: center;
-  font-size: 1.2rem;
-}
-
-.culinary-traditions ul {
-  list-style: disc;
-  padding-left: 20px;
-}
-
-.culinary-traditions li {
-  font-size: 1.1rem;
-  line-height: 1.6;
-  margin-bottom: 10px;
+  color: var(--text-muted);
 }
 
 @media (max-width: 768px) {
-  .hero-section h1 {
-    font-size: 2rem;
-  }
-
-  .hero-section p {
-    font-size: 1rem;
-  }
-
-  .traditional-events h2,
-  .local-arts h2,
-  .culinary-traditions h2 {
-    font-size: 1.8rem;
-  }
-
-  .event h3 {
-    font-size: 1.5rem;
-  }
-
-  .local-arts ul,
-  .culinary-traditions ul {
-    padding-left: 10px;
-  }
-
-  .local-arts li,
-  .culinary-traditions li {
-    font-size: 1rem;
+  .culture-page {
+    margin-top: 1.2rem;
+    gap: 0.9rem;
   }
 }

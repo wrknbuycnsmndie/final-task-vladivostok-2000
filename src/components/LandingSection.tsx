@@ -15,16 +15,24 @@ const LandingSection: FC<LandingSectionProps> = ({
   image,
   link,
 }) => {
+  const sectionClassName = `landing-section ${image ? '' : 'landing-section--plain'}`;
+
   return (
     <section
-      className='landing-section'
+      className={sectionClassName}
       style={image ? { backgroundImage: `url(${image})` } : {}}
     >
-      <NavLink to={link || '/'} onClick={() => window.scrollTo(0, 0)}>
+      <NavLink
+        className='landing-link'
+        to={link || '/'}
+        onClick={() => window.scrollTo(0, 0)}
+      >
         <div className='overlay'>
           <div className='content'>
+            <p className='landing-eyebrow'>Путеводитель</p>
             <h2>{heading}</h2>
             <p>{description}</p>
+            <span className='landing-arrow'>Открыть раздел →</span>
           </div>
         </div>
       </NavLink>
